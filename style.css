@@ -1,20 +1,358 @@
+/* General style */
+
+@font-face{
+    font-family: montserrat;
+    src: url(fonts/Montserrat-Medium.ttf);
+}
+
+@font-face{
+    font-family: montserratBold;
+    src: url(fonts/Montserrat-Bold.ttf);
+}
+
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+html{
+    font-size: 75%;
+    font-family: montserrat;
+    overflow-x: hidden;
+    max-width: 100%;
+    display: flex;
+}
+
+a{
+    text-decoration: none;
+}
+
+section{
+    height: 100vh;
+    display: flex;
+}
+
+h1{
+    color: white;
+    font-size: 5rem;
+    font-family: montserratBold;
+    text-align: center;
+    margin-bottom: 10%;
+}
+
+button{
+    font-size: 2em;
+    color: white;
+    background: #E34AB5;
+    cursor: pointer; 
+    width: 22%;
+    border:none;
+    padding: 1% 0;
+}
+
+/* HEADER section */
+
 header{
-    height: 10%;
+    width: 100%;
+    height: 13vh;
+    background: #F4F4F4;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    align-items: center;
+    padding: 2%;
+    position: fixed;
+    z-index: 3;
 }
+
+.navbar span{
+    font-family: montserratBold;
+    color: #E34AB5;
+    font-size: 2rem;
+}
+
+.navbar ul{
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    width: 30%;
+    white-space: nowrap;
+}
+
+.navbar ul li{
+    margin: 0 10%;
+    font-size: 1.2rem;
+    font-family: montserratBold;
+}
+
+.navbar ul li a:hover{
+    color: #E34AB5;
+}
+
+.navbar ul li a{
+    color: black;
+}
+
+/* Responsive header */
+
+@media(max-width: 840px){
+    header{
+        height: 35vh;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        margin: 0;
+    }
+
+    .navbar ul{
+        flex-direction: column;
+        margin: 5% 0;
+    }
+
+    .navbar ul li{
+        margin-top: 4%;
+    }
+}
+
+/* HERO section */
 
 .hero{
     height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20% 20%;
+    position: relative;
+    background: #0a0a0a;
+    margin-top: 5%;
+}
+
+.hero h1{
+    position: relative;
+    z-index: 2;
+}
+
+.hero:before{
+    content: '';
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    opacity: 0.6;
     background-image: url(images/hero.jpg);
     background-repeat: no-repeat;
     background-size: cover;
+    background-position-y: center; 
+}
+
+.hero button{
+    z-index: 2;
+    border-radius: 10px;
+}
+
+/* Responsive hero */
+
+@media (max-width: 840px){
+    .hero h1{
+        font-size: 4rem;
+    }
+    .hero button{
+        width: 30%;
+        font-size: 1.2em;
+    }
+}
+
+/* QUIENES SOMOS section */
+
+#quienes-somos{
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin: 5% 10%;
+}
+
+#quienes-somos figure{
+    width: 120%;
+}
+
+#quienes-somos figure img{
+    width: 100%;
+}
+
+.column-content{
+    flex-direction: column;
+    margin-left: 10%;
+}
+
+.column-content h2{
+    font-size: 3rem;
+    margin-bottom: 5%;
+}
+
+b{
+    color: #E34AB5;
+}
+/* Responsive quienes somos */
+
+@media (max-width: 840px){
+    #quienes-somos{
+        flex-direction: column;
+    }
+
+    #quienes-somos figure{
+        display: none;
+    }
+
+    .column-content{
+        text-align: center;
+        margin-left: 0;
+    }
+}
+
+/* NUESTROS PROGRAMAS section */
+
+#nuestros-programas{
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: #1E1E1E;
+}
+
+#nuestros-programas h1{
+    font-size: 4rem;
+    margin-bottom: 5%;
+}
+
+.course-offer{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+    flex-wrap: wrap;
+}
+
+.card-course{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    position: relative;
+    background: #323232;
+    width: 22.5%;
+    min-width: 325px;
+    height: 60vh;
+    border-radius: 30px;
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px 0px, rgba(0, 0, 0, 0.23) 0px 6px 6px 0px;
+    margin: 0 2%;
+    color: white;
+    text-align: center;
+}
+
+.card-course:before{
+    content: '';
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 30%;
+    z-index: 1;
+    opacity: 0.5;
+    background-repeat: no-repeat;
+    background-size: cover;
     background-position-y: center;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+}
+
+.card1:before{
+    background-image: url(images/front-end-cropped.jpg);
+}
+
+.card2:before{
+    background-image: url(images/new.jpeg);
+}
+
+.card3:before{
+    background-image: url(images/python-logo.jpg);
+}
+
+.card-course h4{
+    position: relative;
+    z-index: 2;
+    font-size: 2rem;
+    margin: 0 2em;
+}
+
+.card-course p{
+    margin: 0 10%;
+    font-size: 1.2rem;
+}
+
+.card-course button{
+   font-size: 1.2rem;
+   padding: 3% 0 3% 0;
+   box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px 0px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px 0px inset;
+   border-radius: 5%;
+}
+
+/* Caracteristicas */
+
+#caracteristicas{
+    justify-content: space-around;
+    align-items: center;
+    list-style-image: url(images/green-check1.jpg);
+    font-family: montserratBold;
+    font-size: 1.2rem;
+    margin: 0 15%;
+}
+
+/*#caracteristicas ul li:before{
+    content: '';
+}*/
+
+/* FINAL section */
+
+.are-you-ready{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background:#E34AB5;
+}
+
+.are-you-ready h1{
+    margin-bottom: 5%;
+}
+
+.are-you-ready button{
+    border: 1px #772860 solid;
+    background: #e566bf;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px 0px, rgba(0, 0, 0, 0.07) 0px 2px 4px 0px, rgba(0, 0, 0, 0.07) 0px 4px 8px 0px, rgba(0, 0, 0, 0.07) 0px 8px 16px 0px, rgba(0, 0, 0, 0.07) 0px 16px 32px 0px, rgba(0, 0, 0, 0.07) 0px 32px 64px 0px;
+    width: 15%;
+}
+
+/* FOOTER */
+
+footer{
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    height: 15vh;
+    background: rgb(214, 214, 214);
+    color: gray;
+}
+
+footer span{
+    margin-right: 5%;
+    margin-bottom: 1%;
 }
